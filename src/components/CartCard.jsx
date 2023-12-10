@@ -1,13 +1,14 @@
 import { Add, Delete, Remove } from "@mui/icons-material";
 import { useCart } from "../context/CartContext";
 
-export const CartCard = ({ id, item, price, quantity }) => {
+export const CartCard = ({ id, item, price, imgUrl, quantity }) => {
   const { updateQuantity, deleteItem } = useCart();
   return (
     <div
       key={id}
-      className="w-[400px] m-[20px] flex justify-evenly items-center gap-10 p-[30px] shadow-md bg-white rounded-md xs:flex-col xs:gap-3 xs:w-[300px]"
+      className="w-[500px] m-[20px] flex justify-evenly items-center gap-10 p-[30px] shadow-md bg-white rounded-md sm:w-[400px] xs:flex-col xs:gap-3 xs:w-[300px]"
     >
+      <img src={imgUrl} alt={item} className="w-[100px]" />
       <div>
         <h4 className="font-bold xs:text-center">{item}</h4>
         <p className="xs:text-center">Price: ₹{price}</p>

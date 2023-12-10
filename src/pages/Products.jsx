@@ -13,8 +13,8 @@ export const Products = () => {
         </div>
       ) : (
         <div className="mt-[20px] flex flex-wrap justify-center">
-          {productState?.products?.map(({ _id, item, price }) => (
-            <ProductCard id={_id} item={item} price={price} />
+          {productState?.products?.map(({ _id, item, price, imgUrl }) => (
+            <ProductCard id={_id} item={item} price={price} imgUrl={imgUrl} />
           ))}
         </div>
       )}

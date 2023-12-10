@@ -6,8 +6,9 @@ import { PriceCard } from "../components/PriceCard";
 
 export const Cart = () => {
   const { cartState } = useCart();
+  console.log(cartState.cart)
   return (
-    <div className="px-[40px] py-[20px] bg-gray-50 mx-auto lg:px-[20px]">
+    <div className="px-[40px] py-[20px] bg-gray-50 mx-auto lg:px-[20px] min-h-[89vh]">
       <h1 className="text-center text-[28px] font-semibold">Cart</h1>
       {cartState?.isLoading ? (
         <div className="flex justify-center mt-[20px]">
@@ -18,11 +19,12 @@ export const Cart = () => {
       ) : (
         <div className="flex justify-around mt-[20px] px-[70px] lg:px-[20px] md:flex-col md:items-center">
           <div>
-            {cartState?.cart.map(({ _id, item, price, quantity }) => (
+            {cartState?.cart.map(({ _id, item, price, imgUrl, quantity }) => (
               <CartCard
                 id={_id}
                 item={item}
                 price={price}
+                imgUrl={imgUrl}
                 quantity={quantity}
               />
             ))}
