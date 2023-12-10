@@ -6,7 +6,7 @@ export const OrderPlaced = () => {
   const navigate = useNavigate();
   const { orderState } = useOrder();
   return (
-    <div className="mt-[30px]">
+    <div className="mt-[30px] min-h-[89vh]">
       <div className="flex justify-center items-center">
         <CheckCircle sx={{ color: "green" }} />
         <h1 className="text-cente text-[24px] ml-[10px] font-bold">
@@ -32,7 +32,7 @@ export const OrderPlaced = () => {
         <p>
           <strong>Discount Amount: </strong>
           {orderState?.order?.discountEligible
-            ? "₹" + orderState?.order?.totalDiscountAmount
+            ? "₹" + orderState?.order?.totalDiscountAmount?.toFixed(2)
             : "No code applied."}
         </p>
         <button
