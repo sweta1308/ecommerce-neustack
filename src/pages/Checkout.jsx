@@ -5,7 +5,7 @@ export const Checkout = () => {
   const navigate = useNavigate();
   const { orderState, getStats, generateCoupon } = useOrder();
   return (
-    <div className="px-[40px] py-[20px] bg-gray-50 mx-auto">
+    <div className="px-[40px] py-[20px] bg-gray-50 mx-auto min-h-[89vh]">
       <h1 className="text-center text-[28px] font-semibold">Checkout</h1>
       <div className="mx-auto w-[300px] mt-[30px] shadow-md p-[20px] rounded">
         <div className="flex justify-between my-[5px]">
@@ -29,7 +29,9 @@ export const Checkout = () => {
           <div>
             <button
               onClick={() => generateCoupon()}
-              className={`${orderState?.order?.discountCode && "hidden"}`}
+              className={`${
+                orderState?.order?.discountCode && "hidden"
+              } w-full bg-primary-color text-white my-[5px] py-[3px] rounded`}
             >
               Generate coupon
             </button>
@@ -40,14 +42,14 @@ export const Checkout = () => {
                     Discount<small>({orderState?.order?.discountCode})</small>
                   </h3>
                   <p className="text-[16px]">
-                    - ₹{orderState?.order?.totalAmount * 0.1}
+                    - ₹{orderState?.order?.totalAmount?.toFixed(2) * 0.1}
                   </p>
                 </div>
                 <hr />
                 <div className="flex justify-between my-[5px]">
                   <h3 className="font-bold text-[16px]">Total</h3>
                   <h3 className="font-bold text-[16px]">
-                    ₹{orderState?.order?.totalAmount * 0.9}
+                    ₹{orderState?.order?.totalAmount?.toFixed(2) * 0.9}
                   </h3>
                 </div>
                 <button
